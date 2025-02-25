@@ -24,8 +24,9 @@ def get_changes():
             if stripped_line:
                 # Split the line on the first tab into status and filename
                 status, filename = stripped_line.split("\t", 1)
-                # Append the tuple in the order (filename, status)
-                changes.append((filename, status))
+                # Only add files that are inside the "patch/" directory
+                if filename.startswith("patch/"):
+                    github_changes.append((filename, status))
 
     return changes
 
