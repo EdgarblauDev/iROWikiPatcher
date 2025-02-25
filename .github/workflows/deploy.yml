@@ -1,5 +1,7 @@
 on:
   push:
+    paths-ignore:
+      - "patch/patchlist/patch3.txt"
     branches:
       - main
 name: Push iRO Wiki Patches
