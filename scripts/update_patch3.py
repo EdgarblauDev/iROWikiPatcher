@@ -1,0 +1,118 @@
+CHANGED_FILES = "changed_files.txt"
+PATCH_FILE = "patch/patchlist/patch3.txt"
+
+
+def get_changes():
+    """
+    Reads the CHANGED_FILES file and returns a list of changed lines.
+
+    Each line in the file is stripped of whitespace. This file is expected to
+    contain one change per line.
+
+    Returns:
+        list[str]: A list of changes as strings.
+    """
+    changes = []
+
+    # Open the CHANGED_FILES in read mode
+    with open(CHANGED_FILES, "r") as f:
+        # Read each line, strip any leading/trailing whitespace, and add to the list
+        changes = [line.strip() for line in f]
+
+    return changes
+
+
+def current_patchfile():
+    """
+    Reads the PATCH_FILE and returns a dictionary of the current patch entries.
+
+    It processes each line that does not start with '//' (which indicates a commented line).
+    Each valid line is split into a number and a filename. The number is used as the key,
+    and the filename as the value in the dictionary.
+
+    Returns:
+        dict: A dictionary mapping patch numbers (str) to filenames (str).
+    """
+    current = {}
+    # Open the PATCH_FILE in read mode
+    with open(PATCH_FILE, "r") as f:
+        # Process each line in the file
+        for line in f:
+            # Strip whitespace and check if the line is not commented out
+            if not line.strip().startswith('//'):
+                # Split the line into number and filename using the first space as delimiter
+                num, file = line.split(' ', 1)
+                # Store the number and file into the dictionary
+                # .strip() to remove any trailing whitespace
+                current[num] = file.strip()
+
+    return current
+
+
+def update_file_entries(file_path, valid_entries, github_changes):
+    """
+    Updates the file based on GitHub changes:
+    - 'D' (Deleted): Comment out the last valid occurrence.
+    - 'A' (Added): Append a new entry with the next available number.
+    - 'M' (Modified): Comment out the last valid occurrence and add a new entry.
+
+    :param file_path: Path to the main file.
+    :param valid_entries: Dictionary {number: filename}.
+    :param github_changes: List of tuples [(filename, status), ...].
+    """
+    # Read original file
+    with open(file_path, "r") as file:
+        lines = file.readlines()
+
+    # Identify deleted, added, and modified files
+    deleted_files = {filename for filename,
+                     status in github_changes if status == "D"}
+    added_files = [filename for filename,
+                   status in github_changes if status == "A"]
+    modified_files = {filename for filename,
+                      status in github_changes if status == "M"}
+
+    # Find the last occurrence of each file
+    last_occurrences = {}
+    for num, filename in reversed(valid_entries.items()):  # Iterate in reverse
+        if filename in deleted_files or filename in modified_files:
+            if filename not in last_occurrences:
+                last_occurrences[filename] = num
+
+    # Get the next available number
+    next_number = max(map(int, valid_entries.keys()), default=0) + 1
+
+    # Update lines in memory
+    updated_lines = []
+    for line in lines:
+        stripped_line = line.strip()
+        if stripped_line.startswith("//"):
+            updated_lines.append(line)  # Keep already commented lines
+            continue
+
+        num, filename = stripped_line.split(" ", 1)
+
+        if filename in last_occurrences and last_occurrences[filename] == num:
+            updated_lines.append(f"//{line}")  # Comment out last occurrence
+        else:
+            updated_lines.append(line)  # Keep unchanged
+
+    # Add new entries for added files
+    for filename in added_files:
+        updated_lines.append(f"{next_number} {filename}\n")
+        next_number += 1
+
+    # Handle modified files (comment old and add new)
+    for filename in modified_files:
+        updated_lines.append(f"{next_number} {filename}\n")
+        next_number += 1
+
+    # Write back the updated content
+    with open(file_path, "w") as file:
+        file.writelines(updated_lines)
+
+
+if __name__ == "__main__":
+    github_changes = get_changes()
+    valid_entries = current_patchfile()
+    update_file_entries(PATCH_FILE, valid_entries, github_changes)
