@@ -32,5 +32,5 @@ jobs:
         server: ${{ secrets.ftp_server }}
         username: ${{ secrets.ftp_username }}
         password: ${{ secrets.ftp_password }}
-        local-dir: patch
+        local-dir: ./patch/
         server-dir: ./wikipatch/
