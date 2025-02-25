@@ -14,10 +14,10 @@ def get_changes():
     Returns:
         list[tuple]: A list of tuples (status, filename)
     """
-    changes = []
+    output = []
 
     # Open the CHANGED_FILES in read mode
-    with open(CHANGED_FILES, "r") as f:
+    with open(CHANGED_FILES, "r", encoding='utf-8') as f:
         for line in f:
             # Remove any leading/trailing whitespace
             stripped_line = line.strip()
@@ -26,9 +26,9 @@ def get_changes():
                 status, filename = stripped_line.split("\t", 1)
                 # Only add files that are .rgz and .gpf
                 if filename.endswith(('.rgz', '.gpf')):
-                    github_changes.append((filename, status))
+                    output.append((filename, status))
 
-    return changes
+    return output
 
 
 def current_patchfile():
@@ -44,7 +44,7 @@ def current_patchfile():
     """
     current = {}
     # Open the PATCH_FILE in read mode
-    with open(PATCH_FILE, "r") as f:
+    with open(PATCH_FILE, "r", encoding='utf-8') as f:
         # Process each line in the file
         for line in f:
             # Strip whitespace and check if the line is not commented out
@@ -70,7 +70,7 @@ def update_file_entries(file_path, valid_entries, github_changes):
     :param github_changes: List of tuples [(filename, status), ...].
     """
     # Read original file
-    with open(file_path, "r") as file:
+    with open(file_path, "r", encoding='utf-8') as file:
         lines = file.readlines()
 
     # Identify deleted, added, and modified files
@@ -117,7 +117,7 @@ def update_file_entries(file_path, valid_entries, github_changes):
         next_number += 1
 
     # Write back the updated content
-    with open(file_path, "w") as file:
+    with open(file_path, "w", encoding='utf-8') as file:
         file.writelines(updated_lines)
 
 
@@ -152,7 +152,7 @@ def commit_and_push_file(file_path, commit_message="Update patch file [skip ci]"
 
 
 if __name__ == "__main__":
-    github_changes = get_changes()
-    valid_entries = current_patchfile()
-    update_file_entries(PATCH_FILE, valid_entries, github_changes)
+    changes = get_changes()
+    entries = current_patchfile()
+    update_file_entries(PATCH_FILE, entries, changes)
     commit_and_push_file(PATCH_FILE)
