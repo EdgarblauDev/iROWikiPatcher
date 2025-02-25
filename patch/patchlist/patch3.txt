@@ -59,5 +59,6 @@
 //1058 2025-02-18-eac-installer.rgz
 //1059 2025-02-21-questinfo.rgz
 1060 questinfo.rgz
-1061 iteminfo.rgz
+//1061 iteminfo.rgz
 1062 bundle_all_edits.gpf
+1063 iteminfo.rgz
