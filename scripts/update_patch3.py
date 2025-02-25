@@ -10,14 +10,20 @@ def get_changes():
     contain one change per line.
 
     Returns:
-        list[str]: A list of changes as strings.
+        list[tuple]: A list of tuples (status, filename)
     """
     changes = []
 
     # Open the CHANGED_FILES in read mode
     with open(CHANGED_FILES, "r") as f:
-        # Read each line, strip any leading/trailing whitespace, and add to the list
-        changes = [line.strip() for line in f]
+        for line in f:
+            # Remove any leading/trailing whitespace
+            stripped_line = line.strip()
+            if stripped_line:
+                # Split the line on the first tab into status and filename
+                status, filename = stripped_line.split("\t", 1)
+                # Append the tuple in the order (filename, status)
+                changes.append((filename, status))
 
     return changes
 
