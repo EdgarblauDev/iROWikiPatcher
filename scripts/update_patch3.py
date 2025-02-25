@@ -24,8 +24,8 @@ def get_changes():
             if stripped_line:
                 # Split the line on the first tab into status and filename
                 status, filename = stripped_line.split("\t", 1)
-                # Only add files that are inside the "patch/" directory
-                if filename.startswith("patch/"):
+                # Only add files that are .rgz and .gpf
+                if filename.endswith(('.rgz', '.gpf')):
                     github_changes.append((filename, status))
 
     return changes
