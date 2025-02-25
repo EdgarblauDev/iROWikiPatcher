@@ -61,3 +61,4 @@
 1060 questinfo.rgz
 1061 iteminfo.rgz
 1062 bundle_all_edits.gpf
+1063 patch/iteminfo.rgz
