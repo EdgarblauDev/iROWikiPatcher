@@ -1,3 +1,4 @@
+import os
 import subprocess
 
 CHANGED_FILES = "changed_files.txt"
@@ -26,7 +27,7 @@ def get_changes():
                 status, filename = stripped_line.split("\t", 1)
                 # Only add files that are .rgz and .gpf
                 if filename.endswith(('.rgz', '.gpf')):
-                    output.append((filename, status))
+                    output.append((os.path.basename(filename)), status)
 
     return output
 
