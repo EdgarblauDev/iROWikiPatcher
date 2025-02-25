@@ -108,12 +108,12 @@ def update_file_entries(file_path, valid_entries, github_changes):
 
     # Add new entries for added files
     for filename in added_files:
-        updated_lines.append(f"{next_number} {filename}\n")
+        updated_lines.append(f"\n{next_number} {filename}")
         next_number += 1
 
     # Handle modified files (comment old and add new)
     for filename in modified_files:
-        updated_lines.append(f"{next_number} {filename}\n")
+        updated_lines.append(f"\n{next_number} {filename}")
         next_number += 1
 
     # Write back the updated content

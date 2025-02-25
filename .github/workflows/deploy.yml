@@ -24,6 +24,7 @@ jobs:
       uses: actions/checkout@v3
       with:
         fetch-depth: 0
+        token: ${{ secrets.ACTIONS_PAT }}
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -37,6 +38,8 @@ jobs:
 
     - name: Run Patch3 Update Script
       run: python scripts/update_patch3.py
+      env:
+        GITHUB_TOKEN: ${{ secrets.ACTIONS_PAT }}
 
     - name: Push files into FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
