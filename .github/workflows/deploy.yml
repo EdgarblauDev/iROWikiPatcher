@@ -4,6 +4,11 @@ on:
       - "patch/patchlist/patch3.txt"
     branches:
       - main
+
+concurrency:
+  group: patch-deployment
+  cancel-in-progress: false
+
 name: Push iRO Wiki Patches
 jobs:
   patch-deploy:
