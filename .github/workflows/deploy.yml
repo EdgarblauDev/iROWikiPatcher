@@ -4,6 +4,11 @@ on:
       - "patch/patchlist/patch3.txt"
     branches:
       - main
+  pull_request:
+    paths-ignore:
+      - "patch/patchlist/patch3.txt"
+    branches:
+      - main
 
 concurrency:
   group: patch-deployment
