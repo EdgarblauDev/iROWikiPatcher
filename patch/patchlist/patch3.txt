@@ -61,5 +61,6 @@
 1060 questinfo.rgz
 //1061 iteminfo.rgz
 1062 bundle_all_edits.gpf
-1063 iteminfo.rgz
+//1063 iteminfo.rgz
 1064 eac_installer.rgz
+1065 iteminfo.rgz
