@@ -65,3 +65,4 @@
 1064 eac_installer.rgz
 1065 iteminfo.rgz
 1066 questinfo.rgz
+1067 patch-some-edits.gpf
