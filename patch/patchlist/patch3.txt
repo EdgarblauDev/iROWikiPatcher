@@ -66,3 +66,4 @@
 1065 iteminfo.rgz
 1066 questinfo.rgz
 1067 patch-some-edits.gpf
+1068 patch_some_edits.gpf
