@@ -63,7 +63,7 @@
 1062 bundle_all_edits.gpf
 //1063 iteminfo.rgz
 1064 eac_installer.rgz
-1065 iteminfo.rgz
+//1065 iteminfo.rgz
 1066 questinfo.rgz
 //1067 patch-some-edits.gpf
 //1068 patch_some_edits.gpf
@@ -72,3 +72,4 @@
 1071 2025-03_btexture.gpf
 1072 2025-03_btexture1.gpf
 1073 2025-03_dtexture.gpf
+1074 iteminfo.rgz
