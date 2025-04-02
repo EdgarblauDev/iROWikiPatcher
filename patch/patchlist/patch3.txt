@@ -64,7 +64,7 @@
 //1063 iteminfo.rgz
 1064 eac_installer.rgz
 //1065 iteminfo.rgz
-1066 questinfo.rgz
+//1066 questinfo.rgz
 //1067 patch-some-edits.gpf
 //1068 patch_some_edits.gpf
 1069 patch_some_edits.gpf
@@ -77,3 +77,4 @@
 //1076 live_client.gpf
 1077 live_client.gpf
 1078 iteminfo.rgz
+1079 questinfo.rgz
