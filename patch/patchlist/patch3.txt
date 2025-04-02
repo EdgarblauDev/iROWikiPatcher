@@ -72,7 +72,8 @@
 1071 2025-03_btexture.gpf
 1072 2025-03_btexture1.gpf
 1073 2025-03_dtexture.gpf
-1074 iteminfo.rgz
+//1074 iteminfo.rgz
 //1075 live_client.gpf
 //1076 live_client.gpf
 1077 live_client.gpf
+1078 iteminfo.rgz
