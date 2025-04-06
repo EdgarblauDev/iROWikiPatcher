@@ -149,7 +149,7 @@ def commit_and_push_file(file_path, commit_message="Update patch file [skip ci]"
         print(f"Successfully committed and pushed {file_path}")
 
     except subprocess.CalledProcessError as e:
-        print(f"Error committing and pushing file: {e}")
+        print(f"Error committing and pushing file:{e}")
 
 
 if __name__ == "__main__":
