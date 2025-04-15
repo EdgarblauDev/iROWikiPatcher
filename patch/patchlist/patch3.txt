@@ -77,5 +77,6 @@
 //1076 live_client.gpf
 1077 live_client.gpf
 1078 iteminfo.rgz
-1079 questinfo.rgz
+//1079 questinfo.rgz
 1080 patch_some_edits.gpf
+1081 questinfo.rgz
