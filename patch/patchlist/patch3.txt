@@ -60,7 +60,7 @@
 //1059 2025-02-21-questinfo.rgz
 //1060 questinfo.rgz
 //1061 iteminfo.rgz
-1062 bundle_all_edits.gpf
+//1062 bundle_all_edits.gpf
 //1063 iteminfo.rgz
 1064 eac_installer.rgz
 //1065 iteminfo.rgz
@@ -76,8 +76,11 @@
 //1075 live_client.gpf
 //1076 live_client.gpf
 //1077 live_client.gpf
-1078 iteminfo.rgz
+//1078 iteminfo.rgz
 //1079 questinfo.rgz
-1080 patch_some_edits.gpf
+//1080 patch_some_edits.gpf
 1081 questinfo.rgz
 1082 live_client.gpf
+1083 iteminfo.rgz
+1084 bundle_all_edits.gpf
+1085 patch_some_edits.gpf
