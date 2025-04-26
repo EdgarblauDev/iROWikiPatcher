@@ -86,4 +86,5 @@
 1085 patch_some_edits.gpf
 1086 live_client.gpf
 //1087 iteminfo.rgz
-1088 iteminfo.rgz
+//1088 iteminfo.rgz
+1089 iteminfo.rgz
