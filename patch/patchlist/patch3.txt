@@ -88,8 +88,10 @@
 //1087 iteminfo.rgz
 //1088 iteminfo.rgz
 1089 iteminfo.rgz
-1090 main01.rgz
+//1090 main01.rgz
 //1091 2025-03_btexture.gpf
 //1091 main01.gpf
 //1092 2025-03_btexture.gpf
 1093 2025-03_btexture.gpf
+1094 main01.gpf
+1095 main01.rgz
