@@ -87,7 +87,7 @@
 //1086 live_client.gpf
 //1087 iteminfo.rgz
 //1088 iteminfo.rgz
-1089 iteminfo.rgz
+//1089 iteminfo.rgz
 //1090 main01.rgz
 //1091 2025-03_btexture.gpf
 //1091 main01.gpf
@@ -96,3 +96,4 @@
 //1094 main01.gpf
 1095 main01.rgz
 1096 main01.gpf
+1097 iteminfo.rgz
