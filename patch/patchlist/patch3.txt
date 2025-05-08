@@ -98,5 +98,6 @@
 //1096 main01.gpf
 //1097 iteminfo.rgz
 1098 main01.rgz
-1099 main01.gpf
+//1099 main01.gpf
 1100 iteminfo.rgz
+1101 main01.gpf
