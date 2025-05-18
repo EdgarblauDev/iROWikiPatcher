@@ -102,4 +102,5 @@
 //1100 iteminfo.rgz
 1101 main01.gpf
 1102 questinfo.rgz
-1103 iteminfo.rgz
+//1103 iteminfo.rgz
+1104 iteminfo.rgz
