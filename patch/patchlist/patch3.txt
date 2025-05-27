@@ -105,3 +105,4 @@
 //1103 iteminfo.rgz
 //1104 iteminfo.rgz
 1105 iteminfo.rgz
+1106 sprite_qol.gpf
