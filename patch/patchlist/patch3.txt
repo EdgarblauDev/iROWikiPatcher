@@ -105,5 +105,6 @@
 //1103 iteminfo.rgz
 //1104 iteminfo.rgz
 1105 iteminfo.rgz
-1106 sprite_qol.gpf
+//1106 sprite_qol.gpf
 1107 monsters_qol.rgz
+1108 sprite_qol.gpf
